@@ -172,9 +172,10 @@ def transactions_upload():
         with open(filepath) as file:
             csv_file = csv.DictReader(file)
             balance = 0
-            print(list(csv_file))
+
             for row in csv_file:
-                transaction_entry = Transactions(float(row['AMOUNT']), row['TYPE'])
+                balance+=float(row['AMOUNT'])
+                transaction_entry = Transactions(float(row['AMOUNT']), row['TYPE'],balance)
                 transaction_entry.update_balance()
                 db.session.add(transaction_entry)
 

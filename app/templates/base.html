@@ -34,14 +34,14 @@
                         {% if current_user.is_authenticated %}
                             {{ render_nav_item('accounts.dashboard','Dashboard' ) }}
                             {% if current_user.is_admin %}
-                                {{ render_nav_item('accounts.browse_transactions','Transactions Info' ) }}
+
                             {% endif %}
 
                         {% else %}
                             {{ render_nav_item('accounts.index', 'Home') }}
                         {% endif %}
 
-                        {{ render_nav_item('accounts.dashboard','Bank Statements') }}
+                        {{ render_nav_item('accounts.browse_transactions','Bank Statements') }}
                         <!-- {{ render_nav_item('accounts.register_account','Add Account') }}
                         {{ render_nav_item('accounts.add_transaction','Add Transaction') }} -->
                         {{ render_nav_item('accounts.transactions_upload','Upload Transaction') }}

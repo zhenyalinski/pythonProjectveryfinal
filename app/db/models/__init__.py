@@ -93,9 +93,10 @@ class Transactions(db.Model):
 
     # date = db.Column(db.DateTime)
 
-    def __init__(self, amount, type):
+    def __init__(self, amount, type, balance):
         self.amount = amount
         self.type = type
+        self.balance=balance
 
     def update_balance(self):
         Transactions.balance += self.amount
