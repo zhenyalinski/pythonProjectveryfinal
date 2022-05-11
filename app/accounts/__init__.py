@@ -138,7 +138,7 @@ def logout():
     return redirect(url_for('accounts.login'))
 
 
-@accounts.route('/users')
+@accounts.route('/transactions')
 @login_required
 @admin_required
 def browse_transactions():
@@ -168,6 +168,9 @@ def transactions_upload():
 
         form.file.data.save(filepath)
         # user = current_user
+        trans=Transactions.query.all()
+        for t in trans:
+            db.session.delete(t)
         list_of_transactions = []
         with open(filepath) as file:
             csv_file = csv.DictReader(file)
