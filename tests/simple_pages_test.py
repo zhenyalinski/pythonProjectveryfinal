@@ -16,11 +16,11 @@ def test_request_index(client):
     assert response.status_code == 200
     assert b"Index" in response.data
 
-def test_request_about(client):
+def test_request_upload_transactions(client):
     """This makes the index page"""
-    response = client.get("/about")
+    response = client.get("/transactions/upload")
     assert response.status_code == 200
-    assert b"About" in response.data
+    assert b"/transactions/upload" in response.data
 
 def test_request_page1(client):
     """This makes the index page"""
