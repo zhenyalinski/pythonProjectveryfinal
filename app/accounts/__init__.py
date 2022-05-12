@@ -168,9 +168,9 @@ def transactions_upload():
 
         form.file.data.save(filepath)
         # user = current_user
-        trans=Transactions.query.all()
-        for t in trans:
-            db.session.delete(t)
+        # trans=Transactions.query.all()
+        # for t in trans:
+        #     db.session.delete(t)
         list_of_transactions = []
         with open(filepath) as file:
             csv_file = csv.DictReader(file)

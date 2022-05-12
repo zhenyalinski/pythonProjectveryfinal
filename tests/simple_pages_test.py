@@ -1,4 +1,6 @@
 """This test the homepage"""
+import logging
+
 
 def test_request_main_menu_links(client):
     """This makes the index page"""
@@ -47,12 +49,17 @@ def test_request_main_menu_links(client):
     assert b'href="/login"' in response.data
     assert b'href="/register"' in response.data
 
-# def test_request_transactions(client):
+# def test_request_bank_statements(client):
 #     """This makes the index page"""
-#     response = client.get("/transactions")
+#     response = client.get("/bank statements")
+#
+#     log = logging.getLogger("upload")
+#     log.info("inside simple_pages_test / test_request_about")
+#
 #     assert response.status_code == 200
-#     print(response.data)
-#     assert b"transactions" in response.data
+#     assert b"Bank Statements" in response.data
+
+
 
 
 
