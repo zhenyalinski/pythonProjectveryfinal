@@ -17,11 +17,11 @@ def test_request_index(client):
     assert response.status_code == 200
     assert b"Account Management System" in response.data
 
-# def test_request_upload_transactions(client):
-#     """This makes the index page"""
-#     response = client.get("/transactions/upload")
-#     assert response.status_code == 200
-#     assert b"Upload Transactions" in response.data
+def test_request_dashboard_simple(client):
+    """This makes the index page"""
+    response = client.get("/dashboard")
+    assert response.status_code == 200
+    assert b"Transactions" in response.data
 
 def test_request_register(client):
     """This makes the index page"""
@@ -51,13 +51,13 @@ def test_request_main_menu_links(client):
 
 # def test_request_bank_statements(client):
 #     """This makes the index page"""
-#     response = client.get("/bank statements")
+#     response = client.get("/transactions")
 #
 #     log = logging.getLogger("upload")
-#     log.info("inside simple_pages_test / test_request_about")
+#     log.info("inside simple_pages_test + test_request_bank_statements")
 #
 #     assert response.status_code == 200
-#     assert b"Bank Statements" in response.data
+#     assert b"transactions" in response.data
 
 
 
