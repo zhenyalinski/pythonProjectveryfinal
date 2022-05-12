@@ -99,5 +99,18 @@ def test_user_addition(client,application):
     #log.info(response.data)
     assert response.status_code == 200
 
+def test_dashboard_access(client,application):
+    """ Deny dashboard """
+    application.app_context()
+    application.config['WTF_CSRF_ENABLED'] = False
+    log = logging.getLogger("upload")
+    log.info("testing our dash for deny response ")
+    data = {
+        'email': "testest@dash.com'",
+        'password': "test"
+    }
+    response = client.get("/dashboard")
+    #log.info(response.data)
+    assert response.status_code == 302
 
 
