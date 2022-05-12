@@ -1,5 +1,5 @@
 """Testing the Calculator"""
-from calculator import Calculator
+from app.calculator import Calculator
 
 
 def test_calculator_is_instance():

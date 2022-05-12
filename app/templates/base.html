@@ -32,17 +32,20 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <div class="navbar-nav mr-auto">
                         {% if current_user.is_authenticated %}
-                            {{ render_nav_item('auth.dashboard','Dashboard' ) }}
+                            {{ render_nav_item('accounts.dashboard','Dashboard' ) }}
                             {% if current_user.is_admin %}
-                                {{ render_nav_item('auth.browse_users','User Management' ) }}
+
                             {% endif %}
 
                         {% else %}
-                            {{ render_nav_item('account.index', 'Home') }}
+                            {{ render_nav_item('accounts.index', 'Home') }}
                         {% endif %}
 
-                        {{ render_nav_item('account.dashboard','Bank Statements') }}
-                        {{ render_nav_item('account.register','Create Account') }}
+                        {{ render_nav_item('accounts.browse_transactions','Bank Statements') }}
+                        <!-- {{ render_nav_item('accounts.register_account','Add Account') }}
+                        {{ render_nav_item('accounts.add_transaction','Add Transaction') }} -->
+                        {{ render_nav_item('accounts.transactions_upload','Upload Transaction') }}
+
                     </div>
                 </div>
                 <div class="navbar-nav d-flex">
@@ -52,15 +55,11 @@
                                data-bs-toggle="dropdown" aria-expanded="false">
                                 My Account
                             </a>
-                            <ul class="dropdown-menu " aria-labelledby="navbarDarkDropdownMenuLink">
-                                <li><a class="dropdown-item" href="{{ url_for("auth.edit_profile") }}">Manage Profile</a></li>
-                                <li><a class="dropdown-item" href="{{ url_for("auth.edit_account") }}">Manage Account</a></li>
-                                <li><a class="dropdown-item" href="{{ url_for("auth.logout") }}">Logout</a></li>
-                            </ul>
+                           
                         </li>
                     {% else %}
-                        {{ render_nav_item('auth.register','Register' ) }}
-                        {{ render_nav_item('auth.login','Login' ) }}
+                        {{ render_nav_item('accounts.register_user','Register' ) }}
+                        {{ render_nav_item('accounts.login','Login' ) }}
                     {% endif %}
                 </div>
             </nav>

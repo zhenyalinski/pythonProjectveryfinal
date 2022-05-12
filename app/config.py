@@ -1,6 +1,7 @@
 import os
 
 class Config(object):
+    LOG_DIR = None
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     DEBUG = True
     TESTING = True

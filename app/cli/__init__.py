@@ -6,4 +6,5 @@ from app.db import db
 @click.command(name='create-db')
 @with_appcontext
 def create_database():
+
     db.create_all()
