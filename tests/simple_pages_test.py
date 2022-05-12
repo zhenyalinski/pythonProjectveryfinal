@@ -49,15 +49,15 @@ def test_request_main_menu_links(client):
     assert b'href="/login"' in response.data
     assert b'href="/register"' in response.data
 
-# def test_request_bank_statements(client):
-#     """This makes the index page"""
-#     response = client.get("/transactions")
-#
-#     log = logging.getLogger("upload")
-#     log.info("inside simple_pages_test + test_request_bank_statements")
-#
-#     assert response.status_code == 200
-#     assert b"transactions" in response.data
+def test_request_bank_statements(client):
+    """This makes the index page"""
+    response = client.get("/")
+
+    log = logging.getLogger("upload")
+    log.info("inside simple_pages_test + test_request_bank_statements")
+
+    assert response.status_code == 200
+    assert b"Upload Transaction" in response.data
 
 
 def test_request_home(client):
