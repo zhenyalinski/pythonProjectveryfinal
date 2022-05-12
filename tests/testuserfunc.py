@@ -10,7 +10,7 @@ from app import create_app
 def test_login_for_user(client, application):
     application.app_context()
     application.config['WTF_CSRF_ENABLED'] = False
-    log = logging.getLogger("myapp")
+    log = logging.getLogger("upload")
     host_name = socket.gethostname()
     host_ip = socket.gethostbyname(host_name)
     lm = "hostname logging as well as IP_address: " + host_name + " /  " + host_ip
@@ -31,7 +31,7 @@ def test_registration(client,application):
     """ user registration test here """
     application.app_context()
     application.config['WTF_CSRF_ENABLED'] = False
-    log = logging.getLogger("myapp")
+    log = logging.getLogger("upload")
     log.info("response on user test and test_registration: ")
     data = {
         'email': "zv3@test.edu'",
@@ -41,4 +41,15 @@ def test_registration(client,application):
     #log.info(response.status_code)
     #log.info(response.data)
     assert response.status_code == 200
+
+def test_dashboard_user(client,application):
+    """ Testing out user login - user case"""
+    application.app_context()
+    application.config['WTF_CSRF_ENABLED'] = False
+    log = logging.getLogger("upload")
+    log.info("testing dash with user  ")
+    data = {
+        'email': "dash@test.com'",
+        'password': "dash"
+    }
 
