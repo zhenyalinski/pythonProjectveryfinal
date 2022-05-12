@@ -84,4 +84,20 @@ def test_balance(client,application):
     assert response.status_code == 200
 
 
+def test_user_addition(client,application):
+    """ Adding a user test """
+    application.app_context()
+    application.config['WTF_CSRF_ENABLED'] = False
+    log = logging.getLogger("upload")
+    log.info("testing user addition")
+    data = {
+        'email': "zv3@test.edu'",
+        'password': "12345678"
+    }
+    response = client.post('/register', follow_redirects=True, data=data)
+    #log.info(response.status_code)
+    #log.info(response.data)
+    assert response.status_code == 200
+
+
 
