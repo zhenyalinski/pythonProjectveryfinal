@@ -53,3 +53,17 @@ def test_dashboard_user(client,application):
         'password': "dash"
     }
 
+def test_transaction_uploads(client,application):
+    """ Transaction Uploads """
+    application.app_context()
+    application.config['WTF_CSRF_ENABLED'] = False
+    log = logging.getLogger("upload")
+    log.info("testing bank transaction uploads ")
+    data = {
+        'email': "teststest@upload.com'",
+        'password': "12345678"
+    }
+    response = client.post('/transactions/upload', follow_redirects=True, data=data)
+    #log.info(response.status_code)
+    #log.info(response.data)
+    assert response.status_code == 200
